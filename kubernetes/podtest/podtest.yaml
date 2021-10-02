@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: static-web-page
+  labels:
+    curso: edc
+    app: podnginxtest
+spec:
+  containers:
+    - name: web
+      image: nginx
+      ports:
+        - name: webports
+          containerPort: 80
+          protocol: TCP

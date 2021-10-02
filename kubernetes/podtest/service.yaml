@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: webserver
+spec:
+  type: ClusterIP
+  selector:
+    app: podnginxtest
+  ports:
+    - protocol: TCP
+      port: 8002
+      targetPort: webports
