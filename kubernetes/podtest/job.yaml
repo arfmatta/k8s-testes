@@ -1,0 +1,14 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: boletimcovid
+spec:
+  backoffLimit: 3
+  activeDeadlineSeconds: 60
+  template:
+    spec:
+      containers:
+      - name: boletimcovidv2
+        image: arturrogerio/boletimcovid:v2
+        command: ["python", "/run.py"]
+      restartPolicy: Never
