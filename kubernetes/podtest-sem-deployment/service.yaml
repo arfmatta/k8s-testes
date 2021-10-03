@@ -3,10 +3,10 @@ kind: Service
 metadata:
   name: webserver
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   selector:
     app: nginx-test
   ports:
     - protocol: TCP
-      port: 80
+      port: 8002
       targetPort: webports
