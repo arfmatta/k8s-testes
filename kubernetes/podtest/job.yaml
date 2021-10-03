@@ -10,5 +10,6 @@ spec:
       containers:
       - name: boletimcovidv2
         image: arturrogerio/boletimcovid:v2
+        # a tag command somente é necessária se for para substituir o comando existente no dockerfile
         command: ["python", "/run.py"]
       restartPolicy: Never
