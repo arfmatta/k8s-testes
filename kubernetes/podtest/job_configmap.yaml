@@ -1,0 +1,21 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: printout
+spec:
+  backoffLimit: 3
+  activeDeadlineSeconds: 60
+  template:
+    spec:
+      containers:
+      - name: testeenv
+        image: arturrogerio/boletimcovid:v2
+        env:
+          - name: ENV_VAR
+            valueFrom:
+              configMapKeyRef:
+                name: ambiente
+                key: var_teste
+        # a tag command somente é necessária se for para substituir o comando existente no dockerfile
+        command: ["python", "-c", "import os; print(os.environ['ENV_VAR'])"]
+      restartPolicy: Never
