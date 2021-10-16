@@ -22,13 +22,13 @@ dag = DAG(
 
 get_data = BashOperator(
     task_id="get-data",
-    bash_command="curl https://raw.githubusercontent.com/A3Data/hermione/master/hermione/file_text/train.csv -o ~/train.csv",
+    bash_command="curl https://raw.githubusercontent.com/A3Data/hermione/master/hermione/file_text/train.csv -o /tmp/train.csv",
     dag=dag
 )
 
 
 def calculate_mean_age():
-    df = pd.read_csv("~/train.csv")
+    df = pd.read_csv("/tmp/train.csv")
     med = df.Age.mean()
     return med
 
