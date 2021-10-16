@@ -15,10 +15,9 @@ default_args = {
 
 # definir a DAG - fluxo
 dag = DAG(
-    "treino-02",
+    "titanic",
     description="Extrai dados Titanic e calcula idade média",
-    default_args=default_args,
-    schedule_interval="*/5 * * * *"
+    default_args=default_args
 )
 
 get_data = BashOperator(
