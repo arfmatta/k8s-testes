@@ -28,3 +28,32 @@ Aplicar port-forward \
 Acessar URL localhost:8080
 
 Acessar na web/cloud: IP_EXTERNO:8002
+
+## Cluster de Airflow
+
+Iniciar cluster com kind \
+`kind create cluster`
+
+Criar namespace Airflow \
+`kubectl create namespace airflow`
+
+Criar deployment Airflow com Helm Chart \
+`helm repo add apache-airflow https://airflow.apache.org`
+
+Criar pasta na S3
+
+Fazer alterações no `myvalues.yml`
+
+Iniciar Airflow com Helm \
+`helm install airflow apache-airflow/airflow -f airflow/myvalues.yaml -n airflow --debug`
+
+Aplicar port-forward \
+`kubectl port-forward service/webserver 8080:8002 -n podtest` \
+Acessar URL localhost:8080 \
+Senha: artur/admin (ou o que colocar no myvalues.yml)
+
+Criar conexão para a AWS com nome my_aws \
+Login: {aws_access_key_id} \
+Password: {aws_secret_access_key}
+
+
