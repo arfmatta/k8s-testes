@@ -48,7 +48,8 @@ Iniciar Airflow com Helm \
 `helm install airflow apache-airflow/airflow -f airflow/myvalues.yaml -n airflow --debug`
 
 Aplicar port-forward \
-`kubectl port-forward service/webserver 8080:8002 -n podtest` \
+`kubectl port-forward service/airflow-webserver 8080:8080 -n airflow`
+
 Acessar URL localhost:8080 \
 Senha: artur/admin (ou o que colocar no myvalues.yml)
 
