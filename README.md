@@ -57,4 +57,6 @@ Criar conexão para a AWS com nome my_aws \
 Login: {aws_access_key_id} \
 Password: {aws_secret_access_key}
 
-
+## Apagar clusters
+`helm uninstall airflow -n airflow` \
+`kind delete cluster`
